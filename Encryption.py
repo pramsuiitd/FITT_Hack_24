@@ -6,8 +6,6 @@ from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
-
-
 class Encrypt:
     def __init__(self,password:str,srcID:str,publicKey):
         self.password = password
