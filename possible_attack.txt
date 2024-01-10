@@ -4,4 +4,14 @@
 4. Unauthorized Access
 5. Priviledge Escalation
 6. Code/Packet Injection Attacks
-7. Insider Threats
+7. Insider Threats (User/Packet Analysis using ML Models)
+
+Our aim is to make a program which can accurately detect such things.
+
+We can consider detecting packets at edge, as transfering it to the nodes might be time consuming and bandwidth intensive.
+
+Provenance graphs can be used for detection of some of this. Others can be detected using packet analysis at edge.
+
+Say a particular node is said to be defective by a edge. They sent the data to the primary command center. 
+This node can be malicious as well. How can we also protect against such. Probing? Asking for authorisations?
+
