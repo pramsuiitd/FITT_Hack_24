@@ -16,7 +16,7 @@ class Encrypt:
         password = destID.encode()
         kdf = PBKDF2HMAC(
                 algorithm=hashes.SHA256(),
-                length = 16
+                length = 16,
                 iterations = 10000,
                 )
         key = base64.urlsafe_b64encode(kdf.derive(password))
@@ -27,7 +27,7 @@ class Encrypt:
     def encryptDestID(self,destID:str):
         return int(hashlib.sha256((destID).encode()).hexdigest(),16)
 
-    def srcID(self):
+    def encryptSrcID(self):
         return rsa.encrypt(self.srcID.encode(),self.publicKey)
 
 class Decrypt:
@@ -36,12 +36,22 @@ class Decrypt:
         self.srcID = srcID
         self.privateKey = privateKey
         
-    def decryptPayload(self,destID:str):
+    def decryptPayload(self,destID:str,token):
         password = destID.encode()
         kdf = PBKDF2HMAC(
                 algorithm = hashes.SHA256(),
                 length = 16,
                 iterations = 10000,
                 )
+        key = base64.urlsafe_b64encode(kdf.derive(password))
+        f = Fernet(key)
+        return f.decrypt(token)
+    
+    def decryptDestIDTrue(self,hashedDestID)->bool:
+        ourHash = int(hashlib.sha256((self.srcID).encode()).hexdigest(),16)
+        return (ourHash == hashedDestID)
+    
+    def decryptSrcID(self, encryptSrcID):
+        return rsa.decrypt(encryptSrcID,self.privateKey)
 
 
