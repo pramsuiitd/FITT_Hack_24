@@ -1,0 +1,20 @@
+1 Command Center
+Say 'n' nodes (devices, connected via a multi-hop routing protocol)
+
+2 Phases of Operations
+
+- Network Discovery Phase
+	AoDV protocol, all routes. 
+	* Say a malicious node tries to authenticate itself in this phase
+	*  	
+
+
+- Payload/Communication Phase
+
+
+3 Checks
+
+4 Communication
+
+
+
