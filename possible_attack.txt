@@ -19,15 +19,20 @@ This node can be malicious as well. How can we also protect against such. Probin
 Things which we can include
 
 1. Man in the Middle Attack (At the over-view after the coherance time)
-
 2. DDoS Attack (Use ML to detect at the command center). The nodes don't matter, too many resources, not viable.
-
 3. Spoofing. This can be kind-off detected using the Man in the Middle, protocol.
-
 4. Unauthorized Access. Can be detected using similar style as Spoofing/Man in the Middle.
 
 We have 3 deterministic and 1  undeterministic algorithm.
-
 We can have a display which can showcase this in the Command Center. We can have protcols, these can be directly integrated in the market
 
+Packet Structure Under Consideration:
+- src_id
+- dest_id
+- packet_no
+- 
 
+Mentors:
+1. Mr. Rahul Kumar (Bobble AI)
+2. 
+ 
