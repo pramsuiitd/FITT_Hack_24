@@ -14,6 +14,8 @@ class Packet:
         self.bloom_filter_payload = bloom_filter_payload
         self.ttl = ttl # Time to leave parameter. 
                        # This packet is falsified, if the hop count exceeds than this value. 
+        self.nextNode = None
+
     def access_hop(self):
         self.hop_count += 1
         return self.hop_count
@@ -21,4 +23,8 @@ class Packet:
     def version_begin(self, version):
         self.hop_count += 1
         self.version = version
+        return
+    
+    def setNextNode(self,nextNode):
+        self.nextNode = nextNode
         return
