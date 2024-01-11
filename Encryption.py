@@ -7,8 +7,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 class Encrypt:
-    def __init__(self,password:str,srcID:str,publicKey):
-        self.password = password
+    def __init__(self, srcID:str, publicKey):
         self.srcID = srcID
         self.publicKey = publicKey
 
@@ -31,8 +30,7 @@ class Encrypt:
         return rsa.encrypt(self.srcID.encode(),self.publicKey)
 
 class Decrypt:
-    def __init__(self,password:str,srcID:str,privateKey):
-        self.password = password
+    def __init__(self, srcID:str ,privateKey = None):
         self.srcID = srcID
         self.privateKey = privateKey
         
@@ -53,5 +51,4 @@ class Decrypt:
     
     def decryptSrcID(self, encryptSrcID):
         return rsa.decrypt(encryptSrcID,self.privateKey)
-
 
